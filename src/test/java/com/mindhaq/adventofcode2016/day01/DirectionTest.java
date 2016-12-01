@@ -36,4 +36,14 @@ public class DirectionTest {
 	public void left_of_east_is_north() {
 		assertThat(East.left(), is(North));
 	}
+
+	@Test
+	public void left_of_north_is_west() {
+		assertThat(North.left(), is(West));
+	}
+
+	@Test
+	public void right_of_west_is_north() {
+		assertThat(West.right(), is(North));
+	}
 }
