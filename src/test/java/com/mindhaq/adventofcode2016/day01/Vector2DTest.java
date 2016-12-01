@@ -2,7 +2,10 @@ package com.mindhaq.adventofcode2016.day01;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
+import static com.mindhaq.adventofcode2016.day01.Vector2DMatchers.hasX;
+import static com.mindhaq.adventofcode2016.day01.Vector2DMatchers.hasY;
+import static org.hamcrest.CoreMatchers.allOf;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
@@ -18,8 +21,10 @@ public class Vector2DTest {
 		Vector2D sum = v1.add(v2);
 
 		// then
-		assertThat(sum.x, is(2));
-		assertThat(sum.y, is(3));
+		assertThat(sum, allOf(
+				hasX(equalTo(2)),
+				hasY(equalTo(3))
+		));
 	}
 
 
