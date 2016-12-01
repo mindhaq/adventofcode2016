@@ -7,6 +7,7 @@ import static com.mindhaq.adventofcode2016.day01.Vector2DMatchers.hasY;
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 
 public class Vector2DTest {
@@ -27,5 +28,18 @@ public class Vector2DTest {
 		));
 	}
 
+	@Test
+	public void taxicabdistance_with_negative_x_has_positive_value() {
+		Vector2D vector2D = new Vector2D(-10, 5);
+
+		assertThat(vector2D.getTaxiCabDistance(), is(15));
+	}
+
+	@Test
+	public void taxicabdistance_with_negative_y_has_positive_value() {
+		Vector2D vector2D = new Vector2D(10, -5);
+
+		assertThat(vector2D.getTaxiCabDistance(), is(15));
+	}
 
 }
