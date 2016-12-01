@@ -26,7 +26,7 @@ public class TaxiCabWalker {
 				throw new IllegalArgumentException("wrong rotation " + rotation + " in instruction.");
 		}
 
-		int distance = Integer.valueOf(Character.toString(instruction.charAt(1)));
+		int distance = Integer.valueOf(instruction.substring(1));
 		Vector2D step = vectorizer.vectorize(direction, distance);
 
 		position = position.add(step);
