@@ -12,7 +12,13 @@ public class TaxiCabWalker {
 
 	public void walk(String instruction) {
 		char rotation = instruction.charAt(0);
+		int distance = Integer.valueOf(instruction.substring(1));
 
+		rotate(rotation);
+		move(distance);
+	}
+
+	private void rotate(char rotation) {
 		switch (rotation) {
 			case 'R':
 				direction = direction.right();
@@ -25,10 +31,10 @@ public class TaxiCabWalker {
 			default:
 				throw new IllegalArgumentException("wrong rotation " + rotation + " in instruction.");
 		}
+	}
 
-		int distance = Integer.valueOf(instruction.substring(1));
+	private void move(int distance) {
 		Vector2D step = vectorizer.vectorize(direction, distance);
-
 		position = position.add(step);
 	}
 
