@@ -1,5 +1,6 @@
 package com.mindhaq.adventofcode2016.day01;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import static java.lang.Math.abs;
@@ -34,5 +35,13 @@ public class Vector2D {
 	@Override
 	public int hashCode() {
 		return Objects.hashCode(x, y);
+	}
+
+	@Override
+	public String toString() {
+		return MoreObjects.toStringHelper(this)
+				.add("x", x)
+				.add("y", y)
+				.toString();
 	}
 }

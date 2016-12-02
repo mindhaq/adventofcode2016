@@ -2,8 +2,13 @@ package com.mindhaq.adventofcode2016.day01;
 
 import org.junit.Test;
 
+import static com.mindhaq.adventofcode2016.day01.Vector2DMatchers.hasX;
+import static com.mindhaq.adventofcode2016.day01.Vector2DMatchers.hasY;
+import static com.mindhaq.adventofcode2016.day01.Vector2DMatchers.isVectorAt;
+import static org.hamcrest.CoreMatchers.allOf;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
 
 public class TaxiCabWalkerTest {
 
@@ -34,5 +39,15 @@ public class TaxiCabWalkerTest {
 		walker.walk("R3");
 
 		assertThat(walker.getDistance(), is(12));
+	}
+
+	@Test
+	public void example4() {
+		walker.walk("R8");
+		walker.walk("R4");
+		walker.walk("R4");
+		walker.walk("R8");
+
+		assertThat(walker.getFirstPositionVisitedTwice(), isVectorAt(4, 0));
 	}
 }
