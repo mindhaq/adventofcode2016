@@ -17,15 +17,15 @@ public class Keypad {
 	}
 
 	public void setPosition(int posX, int posY) {
-		checkArgument(posX >= 0 && posX < size);
-		checkArgument(posY >= 0 && posY < size);
+		checkArgument(posX >= 0 && posX < size, "Illegal value for posX: " + posX);
+		checkArgument(posY >= 0 && posY < size, "Illegal value for posY: " + posY);
 
 		this.posX = posX;
 		this.posY = posY;
 	}
 
 	private void move(int x, int y) {
-		setPosition(constrain(posX + x), posY + y);
+		setPosition(constrain(posX + x), constrain(posY + y));
 	}
 
 	private int constrain(int i) {

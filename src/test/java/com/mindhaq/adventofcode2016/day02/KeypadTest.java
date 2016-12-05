@@ -73,4 +73,18 @@ public class KeypadTest {
 
 		assertThat(keypad.getNumber(), is(1));
 	}
+
+	@Test
+	public void two_right_three_down_from_one_is_nine() {
+		keypad.setPosition(0, 0);
+
+		keypad.moveRight();
+		keypad.moveRight();
+		keypad.moveDown();
+		keypad.moveDown();
+		keypad.moveDown();
+		keypad.moveDown();
+
+		assertThat(keypad.getNumber(), is(9));
+	}
 }
