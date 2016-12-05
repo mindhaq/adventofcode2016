@@ -11,7 +11,7 @@ public class Operator {
 		this.keypad = keypad;
 	}
 
-	public int follow(String instructions) {
+	public String follow(String instructions) {
 		for (int i = 0; i < instructions.length(); i++) {
 			char command = instructions.charAt(i);
 			switch (command) {
@@ -36,6 +36,6 @@ public class Operator {
 			}
 		}
 
-		return keypad.getNumber();
+		return keypad.getSelectedKey();
 	}
 }

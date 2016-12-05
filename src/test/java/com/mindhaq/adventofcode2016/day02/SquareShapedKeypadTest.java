@@ -34,35 +34,35 @@ public class SquareShapedKeypadTest {
 
 	@Test
 	public void initial_number_is_five() {
-		assertThat(squareShapedKeypad.getNumber(), is(5));
+		assertThat(squareShapedKeypad.getSelectedKey(), is("5"));
 	}
 
 	@Test
 	public void moving_left_sets_number_to_four() {
 		squareShapedKeypad.moveLeft();
 
-		assertThat(squareShapedKeypad.getNumber(), is(4));
+		assertThat(squareShapedKeypad.getSelectedKey(), is("4"));
 	}
 
 	@Test
 	public void moving_right_sets_number_to_six() {
 		squareShapedKeypad.moveRight();
 
-		assertThat(squareShapedKeypad.getNumber(), is(6));
+		assertThat(squareShapedKeypad.getSelectedKey(), is("6"));
 	}
 
 	@Test
 	public void moving_up_sets_number_to_two() {
 		squareShapedKeypad.moveUp();
 
-		assertThat(squareShapedKeypad.getNumber(), is(2));
+		assertThat(squareShapedKeypad.getSelectedKey(), is("2"));
 	}
 
 	@Test
 	public void moving_down_sets_number_to_eight() {
 		squareShapedKeypad.moveDown();
 
-		assertThat(squareShapedKeypad.getNumber(), is(8));
+		assertThat(squareShapedKeypad.getSelectedKey(), is("8"));
 	}
 
 	@Test
@@ -71,7 +71,7 @@ public class SquareShapedKeypadTest {
 		squareShapedKeypad.moveLeft();
 		squareShapedKeypad.moveLeft();
 
-		assertThat(squareShapedKeypad.getNumber(), is(1));
+		assertThat(squareShapedKeypad.getSelectedKey(), is("1"));
 	}
 
 	@Test
@@ -85,7 +85,7 @@ public class SquareShapedKeypadTest {
 		squareShapedKeypad.moveDown();
 		squareShapedKeypad.moveDown();
 
-		assertThat(squareShapedKeypad.getNumber(), is(9));
+		assertThat(squareShapedKeypad.getSelectedKey(), is("9"));
 	}
 
 	@Test
@@ -98,7 +98,7 @@ public class SquareShapedKeypadTest {
 		squareShapedKeypad.moveDown();
 		squareShapedKeypad.moveLeft();
 
-		assertThat(squareShapedKeypad.getNumber(), is(8));
+		assertThat(squareShapedKeypad.getSelectedKey(), is("8"));
 	}
 
 	@Test
@@ -111,6 +111,6 @@ public class SquareShapedKeypadTest {
 		squareShapedKeypad.moveUp();
 		squareShapedKeypad.moveDown();
 
-		assertThat(squareShapedKeypad.getNumber(), is(5));
+		assertThat(squareShapedKeypad.getSelectedKey(), is("5"));
 	}
 }

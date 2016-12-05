@@ -41,8 +41,8 @@ public class SquareShapedKeypad implements Keypad {
 	}
 
 	@Override
-	public int getNumber() {
-		return (posX + 1) + (posY * size);
+	public String getSelectedKey() {
+		return Integer.toString((posX + 1) + (posY * size));
 	}
 
 	@Override

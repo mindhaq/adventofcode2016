@@ -4,7 +4,7 @@ package com.mindhaq.adventofcode2016.day02;
  * @author Rüdiger Schulz &lt;rs@mindhaq.com&gt;
  */
 public interface Keypad {
-	int getNumber();
+	String getSelectedKey();
 
 	void moveLeft();
 

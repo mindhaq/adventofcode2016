@@ -30,7 +30,6 @@ public class SolutionDay02 {
 	private static String findCombination(List<String> input, Operator operator) {
 		return input.stream()
 					.map(s -> operator.follow(s))
-					.map(i -> i.toString())
 					.collect(joining());
 	}
 }
