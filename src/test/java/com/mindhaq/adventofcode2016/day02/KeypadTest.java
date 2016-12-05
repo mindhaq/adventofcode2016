@@ -2,14 +2,12 @@ package com.mindhaq.adventofcode2016.day02;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * @author Rüdiger Schulz &lt;rs@mindhaq.com&gt;
  */
 public class KeypadTest {
 
-	private final Keypad keypad = new Keypad(3);
+	private final Keypad keypad = new Keypad();
 
 	@Test(expected = IllegalArgumentException.class)
 	public void dont_allow_negative_posX() {

@@ -1,7 +1,5 @@
 package com.mindhaq.adventofcode2016.day02;
 
-import com.google.common.base.Preconditions;
-
 import static com.google.common.base.Preconditions.checkArgument;
 
 /**
@@ -14,8 +12,8 @@ public class Keypad {
 
 	private int posY = 0;
 
-	public Keypad(int size) {
-		this.size = size;
+	public Keypad() {
+		this.size = 3;
 	}
 
 	public void setPosition(int posX, int posY) {
