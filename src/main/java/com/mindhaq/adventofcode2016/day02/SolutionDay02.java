@@ -7,6 +7,9 @@ import org.slf4j.Logger;
 import java.io.IOException;
 import java.util.List;
 
+import static com.google.common.base.Charsets.UTF_8;
+import static com.google.common.io.Resources.getResource;
+import static com.google.common.io.Resources.readLines;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -14,38 +17,17 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public class SolutionDay02 {
 
-
 	public static void main(String[] args) throws IOException {
 		final Logger logger = getLogger(SolutionDay02.class);
 
-		Keypad keypad = new Keypad();
-		StringBuilder sb = new StringBuilder();
-		List<String> input = Resources.readLines(Resources.getResource(SolutionDay02.class, "input.txt"), Charsets.UTF_8);
+		Keypad squareShapedKeypad = new SquareShapedKeypad();
+		Operator operator = new Operator(squareShapedKeypad);
+
+		List<String> input = readLines(getResource(SolutionDay02.class, "input.txt"), UTF_8);
 		for (String line: input) {
-			for (int i = 0; i < line.length(); i++) {
-				char command = line.charAt(i);
-				switch (command) {
-					case 'L':
-						keypad.moveLeft();
-						break;
-
-					case 'U':
-						keypad.moveUp();
-						break;
-
-					case 'R':
-						keypad.moveRight();
-						break;
-
-					case 'D':
-						keypad.moveDown();
-						break;
-				}
-			}
-
-			sb.append(keypad.getNumber());
+			operator.follow(line);
 		}
 
-		logger.info("Bathroom code is {}.", sb.toString());
+		logger.info("Bathroom code is {}.", operator.getCombination());
 	}
 }
