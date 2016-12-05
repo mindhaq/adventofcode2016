@@ -4,7 +4,6 @@ package com.mindhaq.adventofcode2016.day02;
  * @author Rüdiger Schulz &lt;rs@mindhaq.com&gt;
  */
 public class Operator {
-	private final StringBuilder combination = new StringBuilder();
 
 	private final Keypad keypad;
 
@@ -12,7 +11,7 @@ public class Operator {
 		this.keypad = keypad;
 	}
 
-	public void follow(String instructions) {
+	public int follow(String instructions) {
 		for (int i = 0; i < instructions.length(); i++) {
 			char command = instructions.charAt(i);
 			switch (command) {
@@ -37,10 +36,6 @@ public class Operator {
 			}
 		}
 
-		combination.append(keypad.getNumber());
-	}
-
-	public String getCombination() {
-		return combination.toString();
+		return keypad.getNumber();
 	}
 }
