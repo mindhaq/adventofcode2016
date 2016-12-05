@@ -57,4 +57,11 @@ public class KeypadTest {
 
 		assertThat(keypad.getNumber(), is(2));
 	}
+
+	@Test
+	public void moving_down_sets_number_to_eight() {
+		keypad.moveDown();
+
+		assertThat(keypad.getNumber(), is(8));
+	}
 }

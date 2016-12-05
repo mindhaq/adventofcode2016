@@ -44,4 +44,8 @@ public class Keypad {
 	public void moveUp() {
 		move(0, -1);
 	}
+
+	public void moveDown() {
+		move(0, 1);
+	}
 }
