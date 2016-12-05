@@ -100,4 +100,17 @@ public class KeypadTest {
 
 		assertThat(keypad.getNumber(), is(8));
 	}
+
+	@Test
+	public void uuuud_from_eight_is_five() {
+		keypad.setPosition(1, 2);
+
+		keypad.moveUp();
+		keypad.moveUp();
+		keypad.moveUp();
+		keypad.moveUp();
+		keypad.moveDown();
+
+		assertThat(keypad.getNumber(), is(5));
+	}
 }
