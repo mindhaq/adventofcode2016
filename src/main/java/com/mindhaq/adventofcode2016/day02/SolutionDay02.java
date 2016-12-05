@@ -21,13 +21,16 @@ public class SolutionDay02 {
 
 		List<String> input = readLines(getResource(SolutionDay02.class, "input.txt"), UTF_8);
 
-		Operator operator = new Operator(new SquareShapedKeypad());
-		String combination = findCombination(input, operator);
+		String combination1 = findCombination(input, new SquareShapedKeypad());
+		logger.info("Bathroom code is {}.", combination1);
 
-		logger.info("Bathroom code is {}.", combination);
+		String combination2 = findCombination(input, new DiamondShapedKeypad());
+		logger.info("New Bathroom code is {}.", combination2);
 	}
 
-	private static String findCombination(List<String> input, Operator operator) {
+	private static String findCombination(List<String> input, Keypad keypad) {
+		Operator operator = new Operator(keypad);
+
 		return input.stream()
 					.map(s -> operator.follow(s))
 					.collect(joining());

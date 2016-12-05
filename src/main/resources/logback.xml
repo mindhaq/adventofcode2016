@@ -6,6 +6,9 @@
         </encoder>
     </appender>
 
+    <logger name="com.mindhaq.adventofcode2016.day01" level="INFO" />
+    <logger name="com.mindhaq.adventofcode2016.day02" level="INFO" />
+
     <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
