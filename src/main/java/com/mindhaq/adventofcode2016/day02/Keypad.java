@@ -24,8 +24,9 @@ public class Keypad {
 		this.posY = posY;
 	}
 
-	public void move(int x) {
+	public void move(int x, int y) {
 		this.posX += x;
+		this.posY += y;
 	}
 
 	public int getNumber() {
@@ -33,10 +34,14 @@ public class Keypad {
 	}
 
 	public void moveLeft() {
-		move(-1);
+		move(-1, 0);
 	}
 
 	public void moveRight() {
-		move(1);
+		move(1, 0);
+	}
+
+	public void moveUp() {
+		move(0, -1);
 	}
 }

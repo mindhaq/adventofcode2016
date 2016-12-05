@@ -50,4 +50,11 @@ public class KeypadTest {
 
 		assertThat(keypad.getNumber(), is(6));
 	}
+
+	@Test
+	public void moving_up_sets_number_to_two() {
+		keypad.moveUp();
+
+		assertThat(keypad.getNumber(), is(2));
+	}
 }
