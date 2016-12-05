@@ -43,4 +43,11 @@ public class KeypadTest {
 
 		assertThat(keypad.getNumber(), is(4));
 	}
+
+	@Test
+	public void moving_right_sets_number_to_six() {
+		keypad.moveRight();
+
+		assertThat(keypad.getNumber(), is(6));
+	}
 }

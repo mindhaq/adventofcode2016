@@ -35,4 +35,8 @@ public class Keypad {
 	public void moveLeft() {
 		move(-1);
 	}
+
+	public void moveRight() {
+		move(1);
+	}
 }
