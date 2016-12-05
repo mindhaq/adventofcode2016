@@ -23,4 +23,10 @@ public class Keypad {
 		this.posX = posX;
 		this.posY = posY;
 	}
+
+	public int getNumber() {
+		return 5;
+	}
+
+
 }

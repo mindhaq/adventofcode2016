@@ -2,6 +2,9 @@ package com.mindhaq.adventofcode2016.day02;
 
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 /**
  * @author Rüdiger Schulz &lt;rs@mindhaq.com&gt;
  */
@@ -27,5 +30,11 @@ public class KeypadTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void dont_allow_too_large_posY() {
 		keypad.setPosition(0, 3);
+	}
+
+	@Test
+	public void initial_number_is_five() {
+		assertThat(keypad.getNumber(), is(5));
+
 	}
 }
