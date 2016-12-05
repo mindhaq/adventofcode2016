@@ -24,9 +24,20 @@ public class Keypad {
 		this.posY = posY;
 	}
 
-	public void move(int x, int y) {
-		this.posX += x;
-		this.posY += y;
+	private void move(int x, int y) {
+		setPosition(constrain(posX + x), posY + y);
+	}
+
+	private int constrain(int i) {
+		if (i < 0) {
+			return 0;
+		}
+
+		if (i >= size) {
+			return size - 1;
+		}
+
+		return i;
 	}
 
 	public int getNumber() {

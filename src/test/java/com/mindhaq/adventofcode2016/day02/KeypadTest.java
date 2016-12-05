@@ -64,4 +64,13 @@ public class KeypadTest {
 
 		assertThat(keypad.getNumber(), is(8));
 	}
+
+	@Test
+	public void up_left_left_is_one() {
+		keypad.moveUp();
+		keypad.moveLeft();
+		keypad.moveLeft();
+
+		assertThat(keypad.getNumber(), is(1));
+	}
 }
