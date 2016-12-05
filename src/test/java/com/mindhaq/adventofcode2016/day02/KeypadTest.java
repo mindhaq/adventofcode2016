@@ -66,7 +66,7 @@ public class KeypadTest {
 	}
 
 	@Test
-	public void up_left_left_is_one() {
+	public void uul_is_one() {
 		keypad.moveUp();
 		keypad.moveLeft();
 		keypad.moveLeft();
@@ -75,7 +75,7 @@ public class KeypadTest {
 	}
 
 	@Test
-	public void two_right_three_down_from_one_is_nine() {
+	public void rrddd_from_one_is_nine() {
 		keypad.setPosition(0, 0);
 
 		keypad.moveRight();
@@ -86,5 +86,18 @@ public class KeypadTest {
 		keypad.moveDown();
 
 		assertThat(keypad.getNumber(), is(9));
+	}
+
+	@Test
+	public void lurdl_from_nine_is_eight() {
+		keypad.setPosition(2, 2);
+
+		keypad.moveLeft();
+		keypad.moveUp();
+		keypad.moveRight();
+		keypad.moveDown();
+		keypad.moveLeft();
+
+		assertThat(keypad.getNumber(), is(8));
 	}
 }
