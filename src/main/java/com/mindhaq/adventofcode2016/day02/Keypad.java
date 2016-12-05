@@ -8,9 +8,9 @@ import static com.google.common.base.Preconditions.checkArgument;
 public class Keypad {
 	private final int size;
 
-	private int posX = 0;
+	private int posX = 1;
 
-	private int posY = 0;
+	private int posY = 1;
 
 	public Keypad() {
 		this.size = 3;
@@ -24,9 +24,15 @@ public class Keypad {
 		this.posY = posY;
 	}
 
-	public int getNumber() {
-		return 5;
+	public void move(int x) {
+		this.posX += x;
 	}
 
+	public int getNumber() {
+		return (posX + 1) + (posY * size);
+	}
 
+	public void moveLeft() {
+		move(-1);
+	}
 }

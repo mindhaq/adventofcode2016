@@ -35,6 +35,12 @@ public class KeypadTest {
 	@Test
 	public void initial_number_is_five() {
 		assertThat(keypad.getNumber(), is(5));
+	}
 
+	@Test
+	public void moving_left_sets_number_to_four() {
+		keypad.moveLeft();
+
+		assertThat(keypad.getNumber(), is(4));
 	}
 }
