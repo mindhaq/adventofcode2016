@@ -3,6 +3,7 @@ package com.mindhaq.adventofcode2016.day03;
 import org.slf4j.Logger;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
