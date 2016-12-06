@@ -30,6 +30,6 @@ public class SolutionDay03 {
 		checkArgument(s1 <= s2, "s1 must be small than s2.");
 		checkArgument(s2 <= s3, "s2 must be small than s3.");
 
-		return false;
+		return s1 + s2 > s3;
 	}
 }

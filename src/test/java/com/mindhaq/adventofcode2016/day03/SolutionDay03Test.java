@@ -37,4 +37,9 @@ public class SolutionDay03Test {
 	public void rejects_impossible_triangle() {
 		assertThat(isTriangle(5, 10, 25), is(false));
 	}
+
+	@Test
+	public void accept_valid_triangle() {
+		assertThat(isTriangle(3, 4, 5), is(true));
+	}
 }
