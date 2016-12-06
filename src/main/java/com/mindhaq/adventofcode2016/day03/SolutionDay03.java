@@ -3,6 +3,7 @@ package com.mindhaq.adventofcode2016.day03;
 import org.slf4j.Logger;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,21 +19,41 @@ import static org.slf4j.LoggerFactory.getLogger;
  * @author Rüdiger Schulz &lt;rs@mindhaq.com&gt;
  */
 public class SolutionDay03 {
-	final static Pattern LINE_SPLITTER_PATTERN = Pattern.compile("\\s+(\\d{1,3})\\s+(\\d{1,3})\\s+(\\d{1,3})");
+	private final static Pattern LINE_SPLITTER_PATTERN = Pattern.compile("\\s+(\\d{1,3})\\s+(\\d{1,3})\\s+(\\d{1,3})");
+	private final static Logger LOG = getLogger(SolutionDay03.class);
 
 	public static void main(String[] args) throws IOException {
-		final Logger logger = getLogger(SolutionDay03.class);
-		logger.debug("finding triangles.");
+		LOG.debug("finding triangles.");
 
-		long numberOfTriangles =
-				readLines(getResource(SolutionDay03.class, "input.txt"), UTF_8)
+		final List<String> readLines = readLines(getResource(SolutionDay03.class, "input.txt"), UTF_8);
+
+		 countTrianglesPart1(readLines);
+		 countTrianglesPart2(readLines);
+	}
+
+	private static void  countTrianglesPart1(List<String> readLines) {
+		long numberOfTrianglesPart1 = readLines
+			.parallelStream()
+			.map(SolutionDay03::parseLine)
+			.map(SolutionDay03::stringsToInts)
+			.filter(SolutionDay03::isTriangle)
+			.count();
+
+		LOG.info("Part1: there are {} valid triangles.", numberOfTrianglesPart1);
+	}
+
+	private static void countTrianglesPart2(List<String> readLines) {
+		ColumnReadingConsumer columnReadingConsumer = new ColumnReadingConsumer();
+		readLines.forEach(columnReadingConsumer);
+
+		long numberOfTrianglesPart2 = columnReadingConsumer
+				.getTriangleSides()
 				.parallelStream()
-				.map(SolutionDay03::parseLine)
 				.map(SolutionDay03::stringsToInts)
 				.filter(SolutionDay03::isTriangle)
 				.count();
 
-		logger.info("There are {} valid triangles.", numberOfTriangles);
+		LOG.info("Part2: there are {} valid triangles.", numberOfTrianglesPart2);
 	}
 
 	static int[] stringsToInts(String[] args) {
