@@ -32,4 +32,9 @@ public class SolutionDay03Test {
 	public void triangle_filter_requires_sorted_parameters() {
 		isTriangle(25, 5, 10);
 	}
+
+	@Test
+	public void rejects_impossible_triangle() {
+		assertThat(isTriangle(5, 10, 25), is(false));
+	}
 }
