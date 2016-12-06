@@ -3,6 +3,7 @@ package com.mindhaq.adventofcode2016.day03;
 
 import org.junit.Test;
 
+import static com.mindhaq.adventofcode2016.day03.SolutionDay03.isTriangle;
 import static com.mindhaq.adventofcode2016.day03.SolutionDay03.parseLine;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -25,5 +26,10 @@ public class SolutionDay03Test {
 		assertThat(strings[0], is("2"));
 		assertThat(strings[1], is("84"));
 		assertThat(strings[2], is("335"));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void triangle_filter_requires_sorted_parameters() {
+		isTriangle(25, 5, 10);
 	}
 }
