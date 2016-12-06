@@ -1,17 +1,45 @@
 package com.mindhaq.adventofcode2016.day03;
 
-import com.google.common.base.Preconditions;
+import org.slf4j.Logger;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.io.Resources.getResource;
+import static com.google.common.io.Resources.readLines;
+import static java.util.Arrays.stream;
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * @author Rüdiger Schulz &lt;rs@mindhaq.com&gt;
  */
 public class SolutionDay03 {
 	final static Pattern LINE_SPLITTER_PATTERN = Pattern.compile("\\s+(\\d{1,3})\\s+(\\d{1,3})\\s+(\\d{1,3})");
+
+	public static void main(String[] args) throws IOException {
+		final Logger logger = getLogger(SolutionDay03.class);
+		logger.debug("finding triangles.");
+
+		long numberOfTriangles =
+				readLines(getResource(SolutionDay03.class, "input.txt"), UTF_8)
+				.parallelStream()
+				.map(SolutionDay03::parseLine)
+				.map(SolutionDay03::stringsToInts)
+				.filter(SolutionDay03::isTriangle)
+				.count();
+
+		logger.info("There are {} valid triangles.", numberOfTriangles);
+	}
+
+	static int[] stringsToInts(String[] args) {
+		return stream(args)
+				.mapToInt(Integer::valueOf)
+				.sorted()
+				.toArray();
+	}
 
 	static String[] parseLine(String line) {
 		Matcher matcher = LINE_SPLITTER_PATTERN.matcher(line);
@@ -26,10 +54,10 @@ public class SolutionDay03 {
 		};
 	}
 
-	static boolean isTriangle(int s1, int s2, int s3) {
-		checkArgument(s1 <= s2, "s1 must be small than s2.");
-		checkArgument(s2 <= s3, "s2 must be small than s3.");
+	static boolean isTriangle(int... s) {
+		checkArgument(s[0] <= s[1], "s1 must be small than s2.");
+		checkArgument(s[1] <= s[2], "s2 must be small than s3.");
 
-		return s1 + s2 > s3;
+		return s[0] + s[1] > s[2];
 	}
 }
