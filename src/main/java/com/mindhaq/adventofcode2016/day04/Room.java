@@ -16,7 +16,7 @@ import static com.google.common.collect.ImmutableMultiset.toImmutableMultiset;
  */
 @Builder
 @Getter
-public class Room {
+class Room {
 
     private final static Pattern CODE_PATTERN = Pattern.compile("^([a-z\\-]*)-(\\d*)\\[(.*)\\]$");
 
