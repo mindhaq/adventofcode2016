@@ -28,6 +28,7 @@ public class Room {
         matcher.matches();
 
         return Room.builder()
+                .sectorId(Integer.valueOf(matcher.group(2)))
                 .checksum(matcher.group(3))
                 .build();
     }

@@ -15,5 +15,11 @@ public class RoomTest {
         assertThat(room.getChecksum()).isEqualTo("abxyz");
     }
 
+    @Test
+    public void reads_sectorId() {
+        Room room = Room.fromCode(EXAMPLE1);
+
+        assertThat(room.getSectorId()).isEqualTo(123);
+    }
 
 }
