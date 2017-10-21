@@ -28,5 +28,11 @@ public class RoomTest {
         assertThat(room.getChecksum()).isEqualTo("abxyz");
     }
 
+    @Test
+    public void checks_reality() {
+        Room room = Room.fromCode(EXAMPLE1);
+
+        assertThat(room.isReal()).isTrue();
+    }
 
 }
