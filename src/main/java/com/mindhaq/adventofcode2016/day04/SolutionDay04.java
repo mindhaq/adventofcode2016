@@ -17,6 +17,8 @@ public class SolutionDay04 {
         RoomsAnalyzer roomsAnalyzer = new RoomsAnalyzer(readLines);
 
         log.info("Sum of real rooms is {}", roomsAnalyzer.getSumOfRealSectorIDs());
+
+        roomsAnalyzer.decryptRoomNames();
     }
 
 }
