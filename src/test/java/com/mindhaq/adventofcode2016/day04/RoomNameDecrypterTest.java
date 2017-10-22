@@ -10,8 +10,15 @@ public class RoomNameDecrypterTest {
 
     @Test
     public void a_becomes_b() {
-        String decrypted = roomNameDecrypter.decrypt("a", 1);
+        char decrypted = roomNameDecrypter.decryptLetter('a', 1);
 
-        assertThat(decrypted).isEqualTo("b");
+        assertThat(decrypted).isEqualTo('b');
+    }
+
+    @Test
+    public void b_becomes_c() {
+        char decrypted = roomNameDecrypter.decryptLetter('b', 1);
+
+        assertThat(decrypted).isEqualTo('c');
     }
 }
