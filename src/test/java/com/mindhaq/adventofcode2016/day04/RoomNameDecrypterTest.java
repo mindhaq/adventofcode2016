@@ -42,4 +42,14 @@ public class RoomNameDecrypterTest {
 
         assertThat(decrypted).isEqualTo(' ');
     }
+
+    @Test
+    public void decrypts_example() {
+        String encrypted = "qzmt-zixmtkozy-ivhz";
+        int shift = 343;
+
+        String decrypted = roomNameDecrypter.decrypt(encrypted, shift);
+
+        assertThat(decrypted).isEqualTo("very encrypted name");
+    }
 }
