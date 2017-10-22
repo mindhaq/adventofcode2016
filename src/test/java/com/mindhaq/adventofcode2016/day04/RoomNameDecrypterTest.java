@@ -35,4 +35,11 @@ public class RoomNameDecrypterTest {
 
         assertThat(decrypted).isEqualTo('v');
     }
+
+    @Test
+    public void dash_becomes_space() {
+        char decrypted = roomNameDecrypter.decryptLetter('-', 343);
+
+        assertThat(decrypted).isEqualTo(' ');
+    }
 }
