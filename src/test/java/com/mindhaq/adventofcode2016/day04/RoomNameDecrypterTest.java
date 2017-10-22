@@ -28,4 +28,11 @@ public class RoomNameDecrypterTest {
 
         assertThat(decrypted).isEqualTo('a');
     }
+
+    @Test
+    public void q_becomes_v_with_shift_343() {
+        char decrypted = roomNameDecrypter.decryptLetter('q', 343);
+
+        assertThat(decrypted).isEqualTo('v');
+    }
 }
