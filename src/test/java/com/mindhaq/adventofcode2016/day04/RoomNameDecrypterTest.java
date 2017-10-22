@@ -21,4 +21,11 @@ public class RoomNameDecrypterTest {
 
         assertThat(decrypted).isEqualTo('c');
     }
+
+    @Test
+    public void z_becomes_a() {
+        char decrypted = roomNameDecrypter.decryptLetter('z', 1);
+
+        assertThat(decrypted).isEqualTo('a');
+    }
 }
