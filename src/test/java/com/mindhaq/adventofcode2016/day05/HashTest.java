@@ -48,4 +48,46 @@ public class HashTest {
         assertThat(hash.getToken()).isEqualTo("f");
     }
 
+    // part 2
+
+    @Test
+    public void interesting_string_part2_example1() {
+        // given
+        String s = "abc3231929";
+
+        // when
+        Hash hash = new Hash(s);
+
+        // then
+        assertThat(hash.isInterestingPosition()).isTrue();
+        assertThat(hash.getPosition()).isEqualTo(1);
+        assertThat(hash.getTokenAtPosition()).isEqualTo("5");
+    }
+
+    @Test
+    public void interesting_string_part2_example2() {
+        // given
+        String s = "abc5017308";
+
+        // when
+        Hash hash = new Hash(s);
+
+        // then
+        assertThat(hash.isInterestingPosition()).isFalse();
+    }
+
+    @Test
+    public void interesting_string_part2_example3() {
+        // given
+        String s = "abc5357525";
+
+        // when
+        Hash hash = new Hash(s);
+
+        // then
+        assertThat(hash.isInterestingPosition()).isTrue();
+        assertThat(hash.getPosition()).isEqualTo(4);
+        assertThat(hash.getTokenAtPosition()).isEqualTo("e");
+    }
+
 }

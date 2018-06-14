@@ -12,5 +12,9 @@ public class SolutionDay05 {
         PasswordCracker passwordCracker = new PasswordCracker(input);
         String password = passwordCracker.crack();
         log.info("Password is {}", password);
+
+        PasswordCracker passwordCracker2 = new PasswordCracker(input);
+        String password2 = passwordCracker2.crackWithOrder();
+        log.info("Password #2 is {}", password2);
     }
 }

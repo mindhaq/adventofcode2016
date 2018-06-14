@@ -21,4 +21,17 @@ public class PasswordCrackerTest {
         // then
         assertThat(password).isEqualTo("18f47a30");
     }
+
+    @Test
+    public void cracks_example_door_part2() {
+        // given
+        String doorId = "abc";
+        PasswordCracker passwordCracker = new PasswordCracker(doorId);
+
+        // when
+        String password = passwordCracker.crackWithOrder();
+
+        // then
+        assertThat(password).isEqualTo("05ace8e3");
+    }
 }
