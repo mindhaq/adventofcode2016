@@ -32,4 +32,17 @@ public class IPV7ParserTest {
         assertThat(IPV7Parser.isAbba(sequence)).isFalse();
     }
 
+    @Test
+    public void check_abba_contains_abba() {
+        var sequence = "abba";
+
+        assertThat(IPV7Parser.containsAbba(sequence)).isTrue();
+    }
+
+    @Test
+    public void check_ioxxoj_contains_abba() {
+        var sequence = "ioxxoj";
+
+        assertThat(IPV7Parser.containsAbba(sequence)).isTrue();
+    }
 }
