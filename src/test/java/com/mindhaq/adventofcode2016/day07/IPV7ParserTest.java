@@ -2,6 +2,7 @@ package com.mindhaq.adventofcode2016.day07;
 
 import org.junit.Test;
 
+import static com.mindhaq.adventofcode2016.day07.IPV7Parser.fromString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class IPV7ParserTest {
@@ -44,5 +45,16 @@ public class IPV7ParserTest {
         var sequence = "ioxxoj";
 
         assertThat(IPV7Parser.containsAbba(sequence)).isTrue();
+    }
+
+    @Test
+    public void parses_sequences() {
+        var input = "asdf[yxcv]qwert[vbnm]poiu";
+
+        var address = fromString(input);
+
+        assertThat(address).isNotNull();
+        assertThat(address.getNormalSequences()).containsExactly("asdf", "qwert", "poiu");
+        assertThat(address.getHypernetSequences()).containsExactly("yxcv", "vbnm");
     }
 }
