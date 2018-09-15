@@ -54,7 +54,53 @@ public class IPV7ParserTest {
         var address = fromString(input);
 
         assertThat(address).isNotNull();
-        assertThat(address.getNormalSequences()).containsExactly("asdf", "qwert", "poiu");
+        assertThat(address.getSupernetSequences()).containsExactly("asdf", "qwert", "poiu");
         assertThat(address.getHypernetSequences()).containsExactly("yxcv", "vbnm");
+    }
+
+    @Test
+    public void check_aba_is_aba() {
+        var sequence = "aba";
+
+        assertThat(IPV7Parser.isAba(sequence)).isTrue();
+    }
+
+    @Test
+    public void check_aaa_is_no_aba() {
+        var sequence = "aaa";
+
+        assertThat(IPV7Parser.isAba(sequence)).isFalse();
+    }
+
+    @Test
+    public void check_yxy_is_bab_of_xyx() {
+        var sequence = "yxy";
+        var aba = "xyx";
+
+        assertThat(IPV7Parser.isBabOf(sequence, aba)).isTrue();
+    }
+
+    @Test
+    public void check_xyx_is_not_bab_of_xyx() {
+        var sequence = "xyx";
+        var aba = "xyx";
+
+        assertThat(IPV7Parser.isBabOf(sequence, aba)).isFalse();
+    }
+
+    @Test
+    public void converts_aba_to_bab() {
+        var aba = "xyx";
+
+        var bab = IPV7Parser.toBab(aba);
+
+        assertThat(bab).isEqualTo("yxy");
+    }
+
+    @Test
+    public void finds_abas() {
+        var sequence = "zazbz";
+
+        assertThat(IPV7Parser.findAbas(sequence)).containsExactly("zaz", "zbz");
     }
 }
