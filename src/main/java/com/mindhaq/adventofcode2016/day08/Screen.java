@@ -55,4 +55,18 @@ public class Screen {
             set(x, y, col[y]);
         }
     }
+
+    public int countLit() {
+        var count = 0;
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                if (get(x, y)) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
 }

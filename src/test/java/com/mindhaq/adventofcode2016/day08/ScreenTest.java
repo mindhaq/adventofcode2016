@@ -15,6 +15,8 @@ public class ScreenTest {
                 assertThat(screen.get(x, y)).isFalse();
             }
         }
+
+        assertThat(screen.countLit()).isEqualTo(0);
     }
 
     @Test
@@ -77,5 +79,17 @@ public class ScreenTest {
         assertThat(screen.get(1, 0)).isTrue();
     }
 
+    @Test
+    public void counts_lit_pixel() {
+        // given
+        screen.set(0, 0, true);
+        screen.set(0, 1, true);
+
+        // when
+        var lits = screen.countLit();
+
+        // then
+        assertThat(lits).isEqualTo(2);
+    }
 
 }
