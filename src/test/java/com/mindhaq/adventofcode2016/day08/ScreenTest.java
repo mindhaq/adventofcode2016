@@ -6,15 +6,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ScreenTest {
 
-    private final Screen screen = new Screen();
+    private final Screen screen = new Screen(4, 3);
+
+    @Test
+    public void screen_starts_blank() {
+        for (int x = 0; x < 4; x++) {
+            for (int y = 0; y < 3; y++) {
+                assertThat(screen.get(x, y)).isFalse();
+            }
+        }
+    }
 
     @Test
     public void sets_and_gets_pixel() {
-        assertThat(screen.get(1, 1)).isFalse();
-
+        // given
         screen.set(1, 1, true);
 
-        assertThat(screen.get(1, 1)).isTrue();
-    }
+        // when
+        boolean pixel = screen.get(1, 1);
 
+        // then
+        assertThat(pixel).isTrue();
+    }
 }

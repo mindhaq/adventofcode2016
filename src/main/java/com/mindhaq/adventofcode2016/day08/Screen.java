@@ -2,7 +2,15 @@ package com.mindhaq.adventofcode2016.day08;
 
 public class Screen {
 
-    private final boolean[][] pixels = new boolean[50][6];
+    private final boolean[][] pixels;
+
+    public Screen() {
+        this(50, 6);
+    }
+
+    public Screen(int width, int height) {
+        pixels = new boolean[width][height];
+    }
 
     public boolean get(int x, int y) {
         return pixels[x][y];
