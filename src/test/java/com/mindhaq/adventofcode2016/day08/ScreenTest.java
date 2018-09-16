@@ -64,4 +64,18 @@ public class ScreenTest {
         // then
         assertThat(col).containsExactly(false, true, false);
     }
+
+    @Test
+    public void sets_column() {
+        // given
+        var col = new boolean[]{true, false, false};
+
+        // when
+        screen.setCol(1, col);
+
+        // then
+        assertThat(screen.get(1, 0)).isTrue();
+    }
+
+
 }

@@ -8,10 +8,6 @@ public class Screen {
     private int width;
     private int height;
 
-    public Screen() {
-        this(50, 6);
-    }
-
     public Screen(int width, int height) {
         this.width = width;
         this.height = height;
@@ -50,5 +46,13 @@ public class Screen {
         }
 
         return col;
+    }
+
+    public void setCol(int x, boolean[] col) {
+        checkArgument(col.length == height);
+
+        for (int y = 0; y < height; y++) {
+            set(x, y, col[y]);
+        }
     }
 }
