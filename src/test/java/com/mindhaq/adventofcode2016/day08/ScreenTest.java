@@ -28,4 +28,16 @@ public class ScreenTest {
         // then
         assertThat(pixel).isTrue();
     }
+
+    @Test
+    public void gets_row() {
+        // given
+        screen.set(1, 1, true);
+
+        // when
+        boolean[] row = screen.getRow(1);
+
+        // then
+        assertThat(row).containsExactly(false, true, false, false);
+    }
 }
