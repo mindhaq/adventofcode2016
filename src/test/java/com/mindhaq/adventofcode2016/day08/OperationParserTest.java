@@ -26,4 +26,20 @@ public class OperationParserTest {
         assertThat(rect.getWidth()).isEqualTo(3);
         assertThat(rect.getHeight()).isEqualTo(2);
     }
+
+    @Test
+    public void parses_rotate_column_operation() {
+        // given
+        var command = "rotate column x=1 by 2";
+
+        // when
+        Operation operation = OperationParser.parse(command);
+
+        // then
+        assertThat(operation).isNotNull();
+
+        var rotateColumn = (RotateColumn) operation;
+        assertThat(rotateColumn.getX()).isEqualTo(1);
+        assertThat(rotateColumn.getPixels()).isEqualTo(2);
+    }
 }

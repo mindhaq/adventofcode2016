@@ -7,6 +7,8 @@ public class OperationParser {
 
     private final static Pattern PARSE_REC = Pattern.compile("rect (\\d+)x(\\d+)");
 
+    private final static Pattern PARSE_ROTATE_COLUMN = Pattern.compile("rotate column x=(\\d) by (\\d)");
+
     public static Operation parse(String commandText) {
         Matcher matcher;
 
@@ -17,6 +19,15 @@ public class OperationParser {
 
             return new Rect(width, height);
         }
+
+        matcher = PARSE_ROTATE_COLUMN.matcher(commandText);
+        if (matcher.matches()) {
+            var x = Integer.parseInt(matcher.group(1));
+            var pixels = Integer.parseInt(matcher.group(2));
+
+            return new RotateColumn(x, pixels);
+        }
+
 
         throw new IllegalArgumentException("cannot parse '" + commandText + "'");
     }
