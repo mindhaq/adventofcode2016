@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 public class OperationParser {
 
     private final static Pattern PARSE_REC = Pattern.compile("rect (\\d+)x(\\d+)");
-    private final static Pattern PARSE_ROTATE_COLUMN = Pattern.compile("rotate column x=(\\d) by (\\d)");
-    private final static Pattern PARSE_ROTATE_ROW = Pattern.compile("rotate row y=(\\d) by (\\d)");
+    private final static Pattern PARSE_ROTATE_COLUMN = Pattern.compile("rotate column x=(\\d+) by (\\d+)");
+    private final static Pattern PARSE_ROTATE_ROW = Pattern.compile("rotate row y=(\\d+) by (\\d+)");
 
     public static Operation parse(String commandText) {
         Matcher matcher;
