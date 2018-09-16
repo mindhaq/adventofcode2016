@@ -69,4 +69,17 @@ public class Screen {
 
         return count;
     }
+
+    public CharSequence display() {
+        var sb = new StringBuilder(width * height);
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                sb.append(get(x, y) ? '#' : '.');
+            }
+            sb.append('\n');
+        }
+
+        return sb;
+    }
 }
