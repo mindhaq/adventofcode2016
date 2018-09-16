@@ -16,4 +16,12 @@ public class RotateRow extends Rotate {
             screen.setRow(y, rotate(screen.getRow(y)));
         }
     }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getPixels() {
+        return pixels;
+    }
 }

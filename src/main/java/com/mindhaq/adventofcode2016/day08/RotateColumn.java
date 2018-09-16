@@ -16,4 +16,12 @@ public class RotateColumn extends Rotate {
             screen.setCol(x, rotate(screen.getCol(x)));
         }
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getPixels() {
+        return pixels;
+    }
 }

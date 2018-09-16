@@ -18,4 +18,12 @@ public class Rect implements Operation {
             }
         }
     }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
 }
