@@ -42,4 +42,20 @@ public class OperationParserTest {
         assertThat(rotateColumn.getX()).isEqualTo(1);
         assertThat(rotateColumn.getPixels()).isEqualTo(2);
     }
+
+    @Test
+    public void parses_rotate_row_operation() {
+        // given
+        var command = "rotate row y=0 by 4";
+
+        // when
+        Operation operation = OperationParser.parse(command);
+
+        // then
+        assertThat(operation).isNotNull();
+
+        var rotateRow = (RotateRow) operation;
+        assertThat(rotateRow.getY()).isEqualTo(0);
+        assertThat(rotateRow.getPixels()).isEqualTo(4);
+    }
 }
