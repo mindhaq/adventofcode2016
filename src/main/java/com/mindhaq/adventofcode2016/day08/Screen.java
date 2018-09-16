@@ -42,4 +42,13 @@ public class Screen {
             set(x, y, row[x]);
         }
     }
+
+    public boolean[] getCol(int x) {
+        var col = new boolean[height];
+        for (int y = 0; y < height; y++) {
+            col[y] = get(x, y);
+        }
+
+        return col;
+    }
 }
