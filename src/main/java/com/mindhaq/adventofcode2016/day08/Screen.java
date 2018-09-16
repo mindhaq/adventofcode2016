@@ -1,5 +1,7 @@
 package com.mindhaq.adventofcode2016.day08;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 public class Screen {
 
     private final boolean[][] pixels;
@@ -29,7 +31,15 @@ public class Screen {
         for (int x = 0; x < width; x++) {
             row[x] = get(x, y);
         }
-        
+
         return row;
+    }
+
+    public void setRow(int y, boolean[] row) {
+        checkArgument(row.length == width);
+
+        for (int x = 0; x < width; x++) {
+            set(x, y, row[x]);
+        }
     }
 }

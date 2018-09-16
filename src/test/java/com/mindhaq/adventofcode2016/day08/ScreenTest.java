@@ -40,4 +40,16 @@ public class ScreenTest {
         // then
         assertThat(row).containsExactly(false, true, false, false);
     }
+
+    @Test
+    public void sets_row() {
+        // given
+        var row = new boolean[]{true, false, false, true};
+
+        // when
+        screen.setRow(1, row);
+
+        // then
+        assertThat(screen.get(0, 1)).isTrue();
+    }
 }
